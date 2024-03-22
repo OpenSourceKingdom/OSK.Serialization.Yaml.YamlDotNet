@@ -13,7 +13,7 @@ namespace OSK.Serialization.Yaml.YamlDotNet
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddYamlDotNetSerialization(this IServiceCollection services)
-            => services.AddYamlSerialization(o =>
+            => services.AddYamlDotNetSerialization(o =>
             {
                 var options = YamlDotNetSerializer.DefaultOptions;
                 o.SerializationNamingConvention = options.SerializationNamingConvention;
@@ -25,7 +25,7 @@ namespace OSK.Serialization.Yaml.YamlDotNet
                 o.CustomTypeConverters = new List<IYamlTypeConverter>();
             });
 
-        public static IServiceCollection AddYamlSerialization(this IServiceCollection services,
+        public static IServiceCollection AddYamlDotNetSerialization(this IServiceCollection services,
             Action<YamlDotNetSerializationOptions> options)
         {
             services.Configure(options);
