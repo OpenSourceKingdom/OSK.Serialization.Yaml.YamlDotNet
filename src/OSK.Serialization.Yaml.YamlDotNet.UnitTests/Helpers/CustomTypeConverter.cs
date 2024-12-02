@@ -19,7 +19,7 @@ namespace OSK.Serialization.Yaml.YamlDotNet.UnitTests.Helpers
             return type == typeof(TestData);
         }
 
-        public object ReadYaml(IParser parser, Type type)
+        public object ReadYaml(IParser parser, Type type, ObjectDeserializer deserializer)
         {
             var testData = new TestData();
 
@@ -53,7 +53,7 @@ namespace OSK.Serialization.Yaml.YamlDotNet.UnitTests.Helpers
             return testData;
         }
 
-        public void WriteYaml(IEmitter emitter, object value, Type type)
+        public void WriteYaml(IEmitter emitter, object value, Type type, ObjectSerializer serializer)
         {
             var testData = value as TestData;
             if (testData == null)
